@@ -20,15 +20,12 @@ export const Searching = () => {
       const backendData = makeGetRequest();
       console.log("backend data here: ", backendData);  // this works!
     //   setData(backendData);
-
     };
 
 
     return (
         <> 
         <Navbar />
-        <h1> Searching page </h1>
-        <p>data is: {data} </p>
         <Search onSendToParent={handleSearch}/>
         <Code onSendToParent={handleSearch}/>
         <Preview />

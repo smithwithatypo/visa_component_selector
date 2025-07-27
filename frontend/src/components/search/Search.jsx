@@ -20,11 +20,10 @@ export const Search = ({ onSendToParent }) => {
   return (
     <>
     <Utility vFlex vFlexCol vGap={4}>
-      <Label htmlFor={id}>Search components</Label>
+      <Label htmlFor={id}>Search for components</Label>
       <InputContainer>
         <Input aria-required="true" id={id} type="text" value={searchInput} onChange={(e) => setSearchInput(e.target.value)}/>
       </InputContainer>
-      <p> {searchInput} </p>
     </Utility>
     <Utility vFlex vGap={12} vMarginTop={16}>
         <Button id={`${id}-submit-button`} onClick={handleSubmit}>
