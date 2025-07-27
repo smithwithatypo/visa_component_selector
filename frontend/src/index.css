@@ -1,5 +1,5 @@
 :root {
-  --theme-font-size: 22px;
+  --theme-font-size: 16px;
   --theme-focus-outline-size: 1px;
   --theme-focus-outline-offset: var(--size-scalable-1);
   --theme-border-size: 2px;
