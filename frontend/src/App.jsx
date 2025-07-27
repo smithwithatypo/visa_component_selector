@@ -1,27 +1,20 @@
-import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom';
 import './App.css'
 
-// Components
-import Navbar from './components/navbar/Navbar'
-import Search from './components/search/Search'
+// Pages
 
-// Visa components
-import { Button } from '@visa/nova-react';
+import { Landing } from './pages/Landing';
+import { Searching } from './pages/Searching';
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <Navbar />
-
-      <h1>Vite + React</h1>
-      <div className="card">
-        <Button onClick={() => setCount((count) => count + 1)}>count is {count}</Button>
-      </div>
-
-      <Search />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/searching" element={<Searching />} />
+      </Routes>
     </>
   )
 }

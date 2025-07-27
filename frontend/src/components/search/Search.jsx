@@ -1,5 +1,4 @@
-import { VisaErrorTiny } from '@visa/nova-icons-react';
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import { Button, Input, InputContainer, Label, Utility } from '@visa/nova-react';
 import './Search.css'
 
@@ -12,6 +11,7 @@ export const Search = () => {
   
   function handleSubmit(searchInput) {
     // TODO: make call to backend here
+    
     return { searchInput };
   }
 
