@@ -1,1 +1,2 @@
-# visa component selector
+# To run both backend & frontend
+
