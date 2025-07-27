@@ -1,47 +1,17 @@
-// import {
-//     autoUpdate,
-//     offset,
-//     FloatingFocusManager,
-//     useClick,
-//     useFloating,
-//     useInteractions,
-//     useDismiss,
-// } from '@floating-ui/react';
+
 import {
-    VisaAccountLow,
-    VisaChevronDownTiny,
-    VisaChevronUpTiny,
-    VisaCloseLow,
-    VisaCloseTiny,
-    VisaMenuLow,
-    VisaNotificationsLow,
-    VisaSearchLow,
-    VisaModeDarkLow
+    VisaModeDarkLow,
+    VisaModeLightLow
 } from '@visa/nova-icons-react';
 import {
-    Avatar,
-    Badge,
     Button,
-    Divider,
-    DropdownButton,
-    DropdownMenu,
-    Input,
-    InputContainer,
     Link,
-    Listbox,
-    ListboxItem,
     Nav,
-    NavAppName,
-    Surface,
     Tab,
-    TabSuffix,
     Tabs,
-    Typography,
-    Utility,
     UtilityFragment,
     VisaLogo,
 } from '@visa/nova-react';
-// import { useRef, useState } from 'react';
 import './Navbar.css'
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -49,8 +19,6 @@ const id = 'navbar';
 
 
 export const Navbar = () => {
-//   const [expandSearch, setExpandSearch] = useState(false);
-//   const searchInitiallyActivated = useRef(false);
   const homeURL = '/';
   const docsURL = 'https://design.visa.com/components/';
   const searchingURL = '/searching';
@@ -72,12 +40,6 @@ export const Navbar = () => {
                   style={{ backgroundColor: 'transparent' }}
                 >
                   <VisaLogo />
-                  {/* <NavAppName>
-                    <Utility
-                      vContainerHide="xs"
-                      element={<Typography variant="headline-3">Component Search</Typography>}
-                    />
-                  </NavAppName> */}
                 </Link>
             </UtilityFragment>
 
@@ -102,15 +64,13 @@ export const Navbar = () => {
                 </nav>
             </UtilityFragment>
 
-
             <UtilityFragment vFlex vJustifyContent="end" vFlexGrow vMarginLeft="auto">
-                <p> <VisaModeDarkLow /> </p>
+                {/* <p> <VisaModeDarkLow /> </p> */}
+                <p> <VisaModeLightLow /> </p>
             </UtilityFragment>
           </> 
-          
         </Nav>
       </UtilityFragment>
-      
     </div>
   );
 };
