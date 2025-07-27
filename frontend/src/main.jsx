@@ -6,8 +6,8 @@ import App from './App.jsx'
 
 // Visa imports
 import '@visa/nova-styles/styles.css';
-// import '@visa/nova-styles/themes/visa-light/index.css';
-import '@visa/nova-styles/themes/visa-dark/index.css';
+// import '@visa/nova-styles/themes/visa-light/index.css';   // light theme
+import '@visa/nova-styles/themes/visa-dark/index.css';    // dark theme
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
