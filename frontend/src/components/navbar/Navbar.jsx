@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './Navbar.css'
 
 
-function Navbar() {
+export const Navbar = () => {
     const [test, setTest] = useState("hiiiii");
 
     return ( 
@@ -15,4 +15,3 @@ function Navbar() {
     );
 }
 
-export default Navbar;
