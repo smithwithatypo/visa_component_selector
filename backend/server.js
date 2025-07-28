@@ -18,6 +18,12 @@ app.get('/search', (req, res) => {
   res.json(data)
 })
 
+app.post('/search', (req, res) => {
+  // build prompt here
+  // call AI API here
+  res.json({"data": "this is data", "status": "200"})
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

@@ -3,6 +3,8 @@ import { Navbar } from "../components/navbar/Navbar"
 import { Search } from "../components/search/Search"
 import { Preview } from "../components/preview/Preview"
 import { Code } from "../components/code/Code"
+import { DefaultFooter } from "../components/footer/Footer"
+import './Searching.css'
 
 import {makeGetRequest} from "../api"
 
@@ -24,11 +26,16 @@ export const Searching = () => {
 
 
     return (
-        <> 
-        <Navbar />
-        <Search onSendToParent={handleSearch}/>
-        <Code onSendToParent={handleSearch}/>
-        <Preview />
-        </>
+      <div className="page-container"> 
+          <Navbar />
+          <div className="content-wrapper">
+              <Search onSendToParent={handleSearch}/>
+              <Code onSendToParent={handleSearch}/>
+              <Preview />
+          </div>
+          <div className="footer">
+              <DefaultFooter />
+          </div>
+      </div>
     )
 }

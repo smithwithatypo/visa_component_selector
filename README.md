@@ -17,3 +17,4 @@
 - better UX for mobile
 - SQL database
 - user login and saved history
+- make template for frontend (so navbar and footer are stable, and only content inside changes)
