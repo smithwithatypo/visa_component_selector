@@ -1,14 +1,13 @@
 import Code from "../models/code.js"
 
 /*  
-Code = {
+Class Code = {
     tabLabel: String,
     text: String,
     id: Number
 }
 */
 
-// export default data = {}
 const data = {};
 
 const icon = new Code(
