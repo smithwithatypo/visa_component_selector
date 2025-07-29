@@ -8,6 +8,8 @@ import './Searching.css'
 
 import {makePostRequest} from "../api"
 
+import { CollapsedAccordion } from "../shared/ui/Accordian"
+
 
 
 
@@ -53,11 +55,13 @@ export const Searching = () => {
               <Code data={data} onSendToParent={handleSearch}/>
               <Preview data={data} />
           </div>
+          <div className="embedded-component">
+            <CollapsedAccordion />
+          </div>
+
+          
           <div className="footer">
               <DefaultFooter />
-          </div>
-          <div className="testing_delete">
-            <iframe loading="lazy" sandbox="allow-same-origin allow-scripts allow-forms" title="Interaction example for accordion example &quot;Default accordion&quot;" src="/react/version/2.5.4/raw/components/accordion/collapsed-accordion" style="inline-size: 100%; height: 100%; min-height: calc(159px * var(--example-resize-factor)); border-top-left-radius: ; border-top-right-radius: ; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;"></iframe>
           </div>
       </div>
     )

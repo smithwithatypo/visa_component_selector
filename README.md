@@ -17,6 +17,7 @@
 - helped me quickly add event listener for using Enter key inside the input box for search.jsx
 - created synthetic data for backend/data.js from 1-shot of "Icons and illustrations" that I made myself
   - had to do in chunks of 5. It broke when I tried to do all 41 at once
+- helped me quickly add a sticky button to copy code into the user's clipboard
 
 
 

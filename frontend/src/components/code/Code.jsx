@@ -1,4 +1,5 @@
 import { Button, Surface, Tab, Tabs, Utility, UtilityFragment, useTabs } from '@visa/nova-react';
+import { useState } from 'react';
 import './Code.css'
 
 const id = 'code-viewer';
@@ -21,7 +22,21 @@ export const Code = ({ data }) => {
     selectedIndex,
   } = useTabs({ arrowKeyNavigation: 'vertical', defaultSelected: 0 });
 
+  const [copied, setCopied] = useState(false);
   const displayContent = data ? [data] : defaultTabsContent;
+
+  const handleCopy = async () => {
+    const textToCopy = displayContent[selectedIndex]?.text;
+      if (textToCopy) {
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+          console.error('Failed to copy text: ', err);
+        }
+      }
+  };
 
   return (
     <Utility vFlex vFlexWrap vGap={8}>
@@ -44,7 +59,21 @@ export const Code = ({ data }) => {
           </Tab>
         ))}
       </Tabs>
-      <Utility vFlex vFlexGrow vElevation="inset">
+      <Utility vFlex vFlexGrow vElevation="inset" style={{ position: 'relative' }}>
+        <Button
+          colorScheme="primary"
+          onClick={handleCopy}
+          style={{
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            zIndex: 10,
+            fontSize: '12px',
+            padding: '4px 8px'
+          }}
+        >
+          {copied ? 'Copied!' : 'Copy'}
+        </Button>
         <UtilityFragment vPadding={10}>
           <Surface id={displayContent[selectedIndex]?.id || `tab-${selectedIndex}`} role="tabpanel">
             <span className="code-content">{displayContent[selectedIndex]?.text}</span>
