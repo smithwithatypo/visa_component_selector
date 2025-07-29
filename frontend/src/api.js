@@ -7,7 +7,7 @@ let API_BASE_URL;
 if (isLocalhost) {
   API_BASE_URL = import.meta.env.VITE_API_BASE_URL_DEVELOPMENT || 'http://localhost:3000';
 } else {
-  API_BASE_URL = import.meta.env.VITE_API_BASE_URL_PRODUCTION || 'https://visacomponentselector-production.up.railway.app:3000';
+  API_BASE_URL = import.meta.env.VITE_API_BASE_URL_PRODUCTION || 'visa_component_selector.railway.internal:3000';
 }
 
 console.log('Final API_BASE_URL:', API_BASE_URL);  // for debug
