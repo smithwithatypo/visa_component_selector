@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import data from './data/data.js'
+import { getComponentMatch } from './ai.js';
 
 const app = express();
 const PORT = 3000;
@@ -17,21 +18,20 @@ app.get('/', (req, res) => {
 });
 
 app.get('/search', (req, res) => {
-  // res.send('here is some data');
   res.json(data)
 })
 
-app.post('/search', (req, res) => {
-  // build prompt here
-  // call AI API here
+app.post('/search', async (req, res) => {
   const searchInput = req.body.searchInput  // String
-  if (searchInput in data) {
-    return res.json({"data": data[searchInput]});
+  const aiOutput = await getComponentMatch(searchInput)
+
+  if (aiOutput in data) {
+    console.log("aiOutput is in data  ", aiOutput)
+    return res.json({"data": data[aiOutput]});
   } else {
-    return res.json({"data": "component doesn't exist in database"})
+    console.log("aiOutput is: ", aiOutput);
+    return res.json({"data": "server error"})
   }
-  console.log(searchInput) 
-  res.json({"data": "this is data from post request", "status": "200"})
 })
 
 app.listen(PORT, () => {

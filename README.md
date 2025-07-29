@@ -3,6 +3,7 @@
 
 
 ## How I used AI
+- I use Github Co-Pilot with Claude Sonnet 4 in VS Code. Mainly in "Ask" mode so it's faster, and rarely in "Agent" mode like creating synthetic data
 - to quickly add simple boilerplate like the Axios API call, or adding CORS in Node/Express
 - asked Claude 3.5 Haiku and Sonnet 4 to see if it had VISA's Product Design System in its training corpus (it did not)
   - so I used Haiku 3.5 to parse all the components in the html file from design.visa.com
@@ -14,6 +15,9 @@
 - helped me debug async issues 
 - helped me debug sending objects from backend to frontend and passing into child components
 - helped me quickly add event listener for using Enter key inside the input box for search.jsx
+- created synthetic data for backend/data.js from 1-shot of "Icons and illustrations" that I made myself
+  - had to do in chunks of 5. It broke when I tried to do all 41 at once
+
 
 
 ## If I had more time
