@@ -15,4 +15,6 @@ COPY --from=builder /app/frontend/dist /usr/share/nginx/html
 COPY --from=builder /app/backend /app/backend
 RUN apk add --no-cache nodejs npm
 EXPOSE 80 3000
+EXPOSE 80 3000
 CMD ["sh", "-c", "nginx -g 'daemon off;' & cd /app/backend && npm start"]
+CMD ["sh", "-c", "nginx -g 'daemon off;'"]
