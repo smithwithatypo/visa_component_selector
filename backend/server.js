@@ -7,7 +7,11 @@ const app = express();
 const PORT = 3000;
 
 app.use(cors({
-  origin: '*'  // TODO: update to frontend's URL when deployed
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'https://visacomponentselector-production.up.railway.app/'
+  ]
 }));
 
 app.use(express.json());
