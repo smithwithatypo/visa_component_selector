@@ -8,7 +8,6 @@ import './Searching.css'
 
 import {makePostRequest} from "../api"
 
-import { CollapsedAccordion } from "../shared/ui/Accordian"
 
 
 
@@ -54,12 +53,7 @@ export const Searching = () => {
               <Search onSendToParent={handleSearch}/>
               <Code data={data} onSendToParent={handleSearch}/>
               <Preview data={data} />
-          </div>
-          <div className="embedded-component">
-            <CollapsedAccordion />
-          </div>
-
-          
+          </div>          
           <div className="footer">
               <DefaultFooter />
           </div>
