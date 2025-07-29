@@ -17,4 +17,3 @@ RUN apk add --no-cache nodejs npm
 EXPOSE 80 3000
 EXPOSE 80 3000
 CMD ["sh", "-c", "nginx -g 'daemon off;' & cd /app/backend && npm start"]
-CMD ["sh", "-c", "nginx -g 'daemon off;'"]
