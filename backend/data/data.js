@@ -12,7 +12,13 @@ const data = {};
 
 const icon = new Code(
     "icon",
-    "code goes here",
+    `
+import { VisaInformationLow } from '@visa/nova-icons-react';
+
+export const VisaIcon = () => {
+  return <VisaInformationLow aria-hidden="false" aria-label="info" />;
+};
+`, 
     0
 )
 data.icon = icon;

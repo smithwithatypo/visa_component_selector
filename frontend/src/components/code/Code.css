@@ -1,0 +1,9 @@
+.code-content {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre;
+  font-family: monospace;
+  font-size: 14px;
+}

@@ -1,32 +1,17 @@
 import { Button, Surface, Tab, Tabs, Utility, UtilityFragment, useTabs } from '@visa/nova-react';
+import './Code.css'
 
-// TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react
 const id = 'code-viewer';
 
-const tabsContent = [
+const defaultTabsContent = [
   {
-    tabLabel: 'Label 1',
-    text: `This is the content area for label 1`,
+    tabLabel: ' ',
+    text: `Search for a component to see code here`,
     id: `${id}-tab-0`,
-  },
-  {
-    tabLabel: 'Label 2',
-    text: `This is the content area for label 2`,
-    id: `${id}-tab-1`,
-  },
-  {
-    tabLabel: 'Label 3',
-    text: `This is the content area for label 3`,
-    id: `${id}-tab-2`,
-  },
-  {
-    tabLabel: 'Label 4',
-    text: `This is the content area for label 4`,
-    id: `${id}-tab-3`,
-  },
+  }
 ];
 
-export const Code = () => {
+export const Code = ({ data }) => {
   const {
     getTabIndex,
     onIndexChange,
@@ -35,14 +20,16 @@ export const Code = () => {
     selectedIndex,
   } = useTabs({ arrowKeyNavigation: 'vertical', defaultSelected: 0 });
 
+  const displayContent = data ? [data] : defaultTabsContent;
+
   return (
     <Utility vFlex vFlexWrap vGap={8}>
       <Tabs onKeyDown={onKeyNavigation} orientation="vertical" role="tablist" style={{ flexBasis: '25%' }}>
-        {tabsContent.map((tabContent, index) => (
-          <Tab key={tabContent.id} role="none">
+        {displayContent.map((tabContent, index) => (
+          <Tab key={tabContent.id || `tab-${index}`} role="none">
             <Button
               aria-selected={index === selectedIndex}
-              aria-controls={tabContent.id}
+              aria-controls={tabContent.id || `tab-${index}`}
               colorScheme="tertiary"
               onClick={() => onIndexChange(index)}
               ref={el => {
@@ -58,8 +45,8 @@ export const Code = () => {
       </Tabs>
       <Utility vFlex vFlexGrow vElevation="inset">
         <UtilityFragment vPadding={10}>
-          <Surface id={tabsContent[selectedIndex].id} role="tabpanel">
-            <span>{tabsContent[selectedIndex]?.text}</span>
+          <Surface id={displayContent[selectedIndex]?.id || `tab-${selectedIndex}`} role="tabpanel">
+            <span className="code-content">{displayContent[selectedIndex]?.text}</span>
           </Surface>
         </UtilityFragment>
       </Utility>

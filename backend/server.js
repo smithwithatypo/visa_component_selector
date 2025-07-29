@@ -9,6 +9,9 @@ app.use(cors({
   origin: '*'
 }));
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', (req, res) => {
   res.send('Hello from Express!');
 });
@@ -21,7 +24,14 @@ app.get('/search', (req, res) => {
 app.post('/search', (req, res) => {
   // build prompt here
   // call AI API here
-  res.json({"data": "this is data", "status": "200"})
+  const searchInput = req.body.searchInput  // String
+  if (searchInput in data) {
+    return res.json({"data": data[searchInput]});
+  } else {
+    return res.json({"data": "no data"})
+  }
+  console.log(searchInput) 
+  res.json({"data": "this is data from post request", "status": "200"})
 })
 
 app.listen(PORT, () => {
