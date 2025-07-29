@@ -12,9 +12,15 @@ import {makePostRequest} from "../api"
 
 
 export const Searching = () => {
-    const [data, setData] = useState();
+  const errorData = {
+    tabLabel: "",
+    text: "sorry, there was a server issue. Can you try again?",
+    id: "100"
+  }  
+
+  const [data, setData] = useState();
     
-    // Log data changes to see when it gets updated
+    // Log data changes to see when it gets updated  (for debugging)
     useEffect(() => {
         if (data) {
             console.log("Data state updated:", data);
@@ -33,6 +39,7 @@ export const Searching = () => {
         if (backendData.data && backendData.data !== "no data") {
           setData(backendData.data);
         } else {
+          setData(errorData)
           console.log("No valid data received from backend");
         }
       } catch (error) {

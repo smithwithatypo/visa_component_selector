@@ -8,6 +8,7 @@ const defaultTabsContent = [
     tabLabel: ' ',
     text: `Search for a component to see code here`,
     id: `${id}-tab-0`,
+    url: ` `
   }
 ];
 

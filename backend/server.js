@@ -6,7 +6,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(cors({
-  origin: '*'
+  origin: '*'  // TODO: update to frontend's URL when deployed
 }));
 
 app.use(express.json());
@@ -28,7 +28,7 @@ app.post('/search', (req, res) => {
   if (searchInput in data) {
     return res.json({"data": data[searchInput]});
   } else {
-    return res.json({"data": "no data"})
+    return res.json({"data": "component doesn't exist in database"})
   }
   console.log(searchInput) 
   res.json({"data": "this is data from post request", "status": "200"})

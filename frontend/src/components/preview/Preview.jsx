@@ -5,6 +5,7 @@ export const Preview = ({ data }) => {
         {data && (
             <div>
                 <p>Data received: {data.tabLabel}</p>
+                <a href={data.url}>see more here</a>
             </div>
         )}
         </>

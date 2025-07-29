@@ -13,6 +13,7 @@
 - helped me debug CSS
 - helped me debug async issues 
 - helped me debug sending objects from backend to frontend and passing into child components
+- helped me quickly add event listener for using Enter key inside the input box for search.jsx
 
 
 ## If I had more time

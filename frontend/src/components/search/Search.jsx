@@ -13,6 +13,12 @@ export const Search = ({ onSendToParent }) => {
     }
   }
 
+  function handleKeyDown(e) {   // added by me so enter works in input box
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
+  }
+
   function handleReset() {
     setSearchInput("");
   }
@@ -22,7 +28,7 @@ export const Search = ({ onSendToParent }) => {
     <Utility vFlex vFlexCol vGap={4}>
       <Label htmlFor={id}>Search for components</Label>
       <InputContainer>
-        <Input aria-required="true" id={id} type="text" value={searchInput} onChange={(e) => setSearchInput(e.target.value)}/>
+        <Input aria-required="true" id={id} type="text" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onKeyDown={handleKeyDown}/>
       </InputContainer>
     </Utility>
     <Utility vFlex vGap={12} vMarginTop={16}>
