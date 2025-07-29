@@ -1,19 +1,26 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { Button, Input, InputContainer, Label, Utility } from '@visa/nova-react';
+import { DataContext } from '../../App';
+import { useNavigate } from 'react-router-dom';
 import './Search.css'
 
 const id = 'search';
 
-export const Search = ({ onSendToParent }) => {
-  const [searchInput, setSearchInput] = useState("");
+export const Search = ({ fromLanding, onSearchSubmit }) => {
+  const { searchInput, setSearchInput } = useContext(DataContext);
+  const navigate = useNavigate();
+
   
   function handleSubmit() {    
-    if (onSendToParent) {
-      onSendToParent({ searchInput });
+    if (fromLanding) {
+      navigate('/searching');
+    }
+    if (onSearchSubmit) {
+      onSearchSubmit();
     }
   }
 
-  function handleKeyDown(e) {   // added by me so enter works in input box
+  function handleKeyDown(e) {
     if (e.key === 'Enter') {
       handleSubmit();
     }

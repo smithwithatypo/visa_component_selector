@@ -23,7 +23,7 @@ export const Code = ({ data }) => {
   } = useTabs({ arrowKeyNavigation: 'vertical', defaultSelected: 0 });
 
   const [copied, setCopied] = useState(false);
-  const displayContent = data ? [data] : defaultTabsContent;
+  const displayContent = data && data.length > 0 ? data : defaultTabsContent;
 
   const handleCopy = async () => {
     const textToCopy = displayContent[selectedIndex]?.text;

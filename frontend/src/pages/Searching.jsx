@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react"
+import { useEffect, useContext } from "react"
+import { DataContext } from '../App';
 import { Navbar } from "../components/navbar/Navbar"
 import { Search } from "../components/search/Search"
 import { Preview } from "../components/preview/Preview"
@@ -9,17 +10,15 @@ import './Searching.css'
 import {makePostRequest} from "../api"
 
 
-
-
-
 export const Searching = () => {
+  const { data, setData } = useContext(DataContext);
+  const { searchInput } = useContext(DataContext);
+  
   const errorData = {
     tabLabel: "",
     text: "sorry, there was a server issue. Can you try again?",
     id: "100"
   }  
-
-  const [data, setData] = useState();
     
     // for debugging
     useEffect(() => {
@@ -28,20 +27,22 @@ export const Searching = () => {
         }
     }, [data]);
     
-    const handleSearch = async (userInputFromSearch) => {
-
+    const handleSearch = async () => {
       try {
-        const backendData = await makePostRequest(userInputFromSearch);
+        // console.log("search input is: ", searchInput)
+        const payload = {"searchInput": searchInput}
+        const backendData = await makePostRequest(payload);
         console.log("Backend response:", backendData);
         
         if (backendData.data && backendData.data !== "server error") {
           setData(backendData.data);
         } else {
-          setData(errorData)
+          setData(errorData);
           console.log("No valid data received from backend");
         }
       } catch (error) {
         console.error("Error fetching data:", error);
+        setData(errorData);
       }
     };
 
@@ -50,8 +51,8 @@ export const Searching = () => {
       <div className="page-container"> 
           <Navbar />
           <div className="content-wrapper">
-              <Search onSendToParent={handleSearch}/>
-              <Code data={data} onSendToParent={handleSearch}/>
+              <Search onSearchSubmit={handleSearch} fromLanding={false}/>
+              <Code data={data} />
               <Preview data={data} />
           </div>          
           <div className="footer">

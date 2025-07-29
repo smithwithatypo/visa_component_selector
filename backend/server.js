@@ -29,16 +29,31 @@ app.get('/search', (req, res) => {
 })
 
 app.post('/search', async (req, res) => {
+  console.log("req.body is: ", req.body);
   const searchInput = req.body.searchInput  // String
-  const aiOutput = await getComponentMatch(searchInput)
+  const threeOutputs = await getComponentMatch(searchInput);
 
-  if (aiOutput in data) {
-    console.log("aiOutput is in data  ", aiOutput)
-    return res.json({"data": data[aiOutput]});
-  } else {
-    console.log("aiOutput is: ", aiOutput);
-    return res.json({"data": "server error"})
+  const arrayOfOutputs = threeOutputs.split(',').map(output => output.trim());
+  const payload = [];
+
+  for (const output of arrayOfOutputs) {
+    if (output in data) {
+      console.log("Found match:", output);
+      payload.push(data[output])
+    } else {
+      console.log("aiOutput is: ", output);
+      return res.json({"data": "server error"})
+    }
   }
+  return res.json({"data": payload});
+
+  // if (aiOutput in data) {    // deprecated
+  //   console.log("aiOutput is in data  ", aiOutput)
+  //   return res.json({"data": data[aiOutput]});
+  // } else {
+  //   console.log("aiOutput is: ", aiOutput);
+  //   return res.json({"data": "server error"})
+  // }
 })
 
 app.listen(PORT, () => {

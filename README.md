@@ -22,6 +22,7 @@ https://visacomponentselector-production.up.railway.app
 - helped me quickly add a sticky button to copy code into the user's clipboard
 - helped me quickly build a dockerfile and debug it
 - helped me debug deployment issues with CORS, .env variables, Docker, nginx, and Railway quirks 
+- helped me debug useContext() deep nesting of data
 
 
 
