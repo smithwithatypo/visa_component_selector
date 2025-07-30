@@ -32,6 +32,7 @@ https://visacomponentselector-production.up.railway.app
 ## If I had more time
 - add more Preview.jsx functionality (add more components in /shared/ui/... and present them when the user clicks a tab)
 - add a few subtle designs to the background. Like dark gray textures or geometric shapes
+- get the actual code from the website. I used synthetic data to build the mock database. Web scraping and copy/pasting was too time-consuming for this project
 - add Light/Dark mode
 - better UX for mobile
 - SQL database from automated web scraping of design.visa.com
