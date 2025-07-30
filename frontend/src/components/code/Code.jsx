@@ -1,4 +1,4 @@
-import { Button, Surface, Tab, Tabs, Utility, UtilityFragment, useTabs } from '@visa/nova-react';
+import { Button, Surface, Tab, Tabs, Typography, Utility, UtilityFragment, useTabs } from '@visa/nova-react';
 import { useState } from 'react';
 import './Code.css'
 
@@ -59,7 +59,7 @@ export const Code = ({ data }) => {
           </Tab>
         ))}
       </Tabs>
-      <Utility vFlex vFlexGrow vElevation="inset" style={{ position: 'relative' }}>
+      <Utility vFlex vFlexGrow vElevation="inset" style={{ position: 'relative' }} className='code-container'>
         <Button
           colorScheme="primary"
           onClick={handleCopy}
@@ -74,9 +74,9 @@ export const Code = ({ data }) => {
         >
           {copied ? 'Copied!' : 'Copy'}
         </Button>
-        <UtilityFragment vPadding={10}>
+        <UtilityFragment vPadding={10} >
           <Surface id={displayContent[selectedIndex]?.id || `tab-${selectedIndex}`} role="tabpanel">
-            <span className="code-content">{displayContent[selectedIndex]?.text}</span>
+            <Typography variant="body-2" className='code-content'>{displayContent[selectedIndex]?.text}</Typography>
           </Surface>
         </UtilityFragment>
       </Utility>

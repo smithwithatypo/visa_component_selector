@@ -9,18 +9,18 @@ import { Utility } from '@visa/nova-react';
 
 import './Searching.css'
 
-import {makePostRequest} from "../api"
+import { handleSearch } from "../api"
 
 
 export const Searching = () => {
   const { data, setData } = useContext(DataContext);
   const { searchInput } = useContext(DataContext);
   
-  const errorData = {
-    tabLabel: "",
-    text: "sorry, there was a server issue. Can you try again?",
-    id: "100"
-  }  
+  // const errorData = {      // moved to api.js
+  //   tabLabel: "",
+  //   text: "sorry, there was a server issue. Can you try again?",
+  //   id: "100"
+  // }  
     
     // for debugging
     useEffect(() => {
@@ -29,24 +29,28 @@ export const Searching = () => {
         }
     }, [data]);
     
-    const handleSearch = async () => {
-      try {
-        // console.log("search input is: ", searchInput)
-        const payload = {"searchInput": searchInput}
-        const backendData = await makePostRequest(payload);
-        console.log("Backend response:", backendData);
+  const onSearchSubmit = () => handleSearch(searchInput, setData);
+
+
+
+    // const handleSearch = async () => {           // moved to api.js
+    //   try {
+    //     // console.log("search input is: ", searchInput)
+    //     const payload = {"searchInput": searchInput}
+    //     const backendData = await makePostRequest(payload);
+    //     console.log("Backend response:", backendData);
         
-        if (backendData.data && backendData.data !== "server error") {
-          setData(backendData.data);
-        } else {
-          setData(errorData);
-          console.log("No valid data received from backend");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setData(errorData);
-      }
-    };
+    //     if (backendData.data && backendData.data !== "server error") {
+    //       setData(backendData.data);
+    //     } else {
+    //       setData(errorData);
+    //       console.log("No valid data received from backend");
+    //     }
+    //   } catch (error) {
+    //     console.error("Error fetching data:", error);
+    //     setData(errorData);
+    //   }
+    // };
 
 
     return (
@@ -54,7 +58,8 @@ export const Searching = () => {
           <Navbar />
           <div className="content-wrapper">
             <Utility vFlexRow vMarginRight={20} vMarginBottom={16}>
-              <Search onSearchSubmit={handleSearch} fromLanding={false}/>
+              {/* <Search onSearchSubmit={handleSearch} fromLanding={false}/> */}
+              <Search onSearchSubmit={onSearchSubmit} fromLanding={false}/>
 
             </Utility>
               <Code data={data} />

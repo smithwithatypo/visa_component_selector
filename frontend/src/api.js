@@ -12,15 +12,31 @@ if (isLocalhost) {
 
 // console.log('Final API_BASE_URL:', API_BASE_URL);  // for debug
 
-export async function makeGetRequest() {
+
+export const handleSearch = async (searchInput, setData) => {
+  const errorData = {
+    tabLabel: "",
+    text: "sorry, there was a server issue. Can you try again?",
+    id: "100"
+  };
+
   try {
-    const response = await axios.get(`${API_BASE_URL}/search`);
-    return response.data;
+    const payload = {"searchInput": searchInput};
+    const backendData = await makePostRequest(payload);
+    console.log("Backend response:", backendData);
+    
+    if (backendData.data && backendData.data !== "server error") {
+      setData(backendData.data);
+    } else {
+      setData(errorData);
+      console.log("No valid data received from backend");
+    }
   } catch (error) {
-    console.error('GET request failed:', error);
-    throw error;
+    console.error("Error fetching data:", error);
+    setData(errorData);
   }
-}
+};
+
 
 export async function makePostRequest(data) {
   try {
