@@ -22,8 +22,10 @@ export const Landing = () => {
         <div className="page-container"> 
             <Navbar />
 
-            <Utility vFlex vJustifyContent='center' vFlexCol vRowGap={4}>
-                <Utility vFlexGrow vPadding={8} vMarginTop={40} vAlignSelf='center'>
+            {/* <Utility vFlex vAlignItems='center' vJustifyContent='center' vFlexCol vRowGap={4}> */}
+            {/* <Utility vFlexCol vJustifyContent='center' vRowGap={4} vMinHeight='100vh'> */}
+            <Utility vFlex className="hero-section">
+                <Utility  vPadding={12} vMarginTop={0} vAlignSelf='center'>
                     <Utility vFlex>
                         <Typography variant="headline-1">What are we building today?</Typography>
                         <BottomTooltip />
