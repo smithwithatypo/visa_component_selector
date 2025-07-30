@@ -1,5 +1,6 @@
 import { Button, Surface, Tab, Tabs, Typography, Utility, UtilityFragment, useTabs } from '@visa/nova-react';
 import { useState } from 'react';
+import { Preview } from '../preview/Preview';
 import './Code.css'
 
 const id = 'code-viewer';
@@ -39,7 +40,10 @@ export const Code = ({ data }) => {
   };
 
   return (
-    <Utility vFlex vFlexWrap vGap={8}>
+    <Utility vFlexCol vFlexWrap vGap={8}>
+      <Utility vFlex>
+
+      
       <Tabs onKeyDown={onKeyNavigation} orientation="vertical" role="tablist" style={{ flexBasis: '25%' }}>
         {displayContent.map((tabContent, index) => (
           <Tab key={tabContent.id || `tab-${index}`} role="none">
@@ -79,6 +83,11 @@ export const Code = ({ data }) => {
             <Typography variant="body-2" className='code-content'>{displayContent[selectedIndex]?.text}</Typography>
           </Surface>
         </UtilityFragment>
+      </Utility>
+      </Utility>
+      
+      <Utility>
+        <Preview selectedComponent={displayContent[selectedIndex]} />
       </Utility>
     </Utility>
   );

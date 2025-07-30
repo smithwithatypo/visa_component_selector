@@ -1,7 +1,4 @@
 .code-content {
-  display: block;
-  width: 100%;
-  max-width: 100%;
   overflow-x: auto;
   white-space: pre;
   font-family: monospace;
@@ -10,5 +7,5 @@
 }
 
 .code-container {
-  max-width: 72%;
+  max-width: 70%;
 }

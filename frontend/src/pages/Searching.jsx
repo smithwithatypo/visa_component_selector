@@ -63,7 +63,7 @@ export const Searching = () => {
 
             </Utility>
               <Code data={data} />
-              <Preview data={data} />
+              {/* <Preview data={data} /> */}
           </div>          
           <div className="footer">
               <DefaultFooter />
