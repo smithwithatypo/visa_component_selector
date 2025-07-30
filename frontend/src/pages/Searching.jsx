@@ -5,6 +5,8 @@ import { Search } from "../components/search/Search"
 import { Preview } from "../components/preview/Preview"
 import { Code } from "../components/code/Code"
 import { DefaultFooter } from "../components/footer/Footer"
+import { Utility } from '@visa/nova-react';
+
 import './Searching.css'
 
 import {makePostRequest} from "../api"
@@ -51,7 +53,10 @@ export const Searching = () => {
       <div className="page-container"> 
           <Navbar />
           <div className="content-wrapper">
+            <Utility vFlexRow vMarginRight={20} vMarginBottom={16}>
               <Search onSearchSubmit={handleSearch} fromLanding={false}/>
+
+            </Utility>
               <Code data={data} />
               <Preview data={data} />
           </div>          

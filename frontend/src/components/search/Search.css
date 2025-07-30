@@ -1,0 +1,13 @@
+Label {
+    color: var(--palette-default-surface-1)
+}
+
+#search-submit-button {
+    padding-bottom: .5px;
+    padding-right: 1px;
+    min-width: 50px;
+}
+
+Input {
+    min-width: 300px;
+}

@@ -47,13 +47,6 @@ app.post('/search', async (req, res) => {
   }
   return res.json({"data": payload});
 
-  // if (aiOutput in data) {    // deprecated
-  //   console.log("aiOutput is in data  ", aiOutput)
-  //   return res.json({"data": data[aiOutput]});
-  // } else {
-  //   console.log("aiOutput is: ", aiOutput);
-  //   return res.json({"data": "server error"})
-  // }
 })
 
 app.listen(PORT, () => {
